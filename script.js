@@ -37,7 +37,45 @@ const completedCount = document.getElementById("completedCount");
 const incompleteCount = document.getElementById("incompleteCount");
 const totalCount = document.getElementById("totalCount");
 
+// ============================================
+// TASK MANAGEMENT STATE
+// ============================================
+
+let tasks = [];                    
+let currentText = "";           
+let oldCategory = "";             
+let editingID = null;             
+let selectedCategory = "All Tasks"; 
+
+// ============================================
+// LOCAL STORAGE FUNCTIONS FOR TASKS
+// ============================================
+
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasksFromLocalStorage() {
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+        try {
+            tasks = JSON.parse(storedTasks);
+            tasks = tasks.map(task => ({
+                ...task,
+                completed: task.completed || false
+            }));
+        } catch (error) {
+            console.error('Error loading tasks:', error);
+            tasks = [];
+        }
+    } else {
+        tasks = [];
+    }
+}
+
+// ============================================
 // DARK MODE FUNCTIONALITY
+// ============================================
 
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
@@ -55,13 +93,14 @@ darkModeBtn.addEventListener("click", () => {
 // USER AUTHENTICATION / SESSION MANAGEMENT
 // ============================================
 
-// Check if user is already logged in (saved in localStorage)
 const savedUser = localStorage.getItem("username");
 if (savedUser) {
     authSection.style.display = "none";
     tasksparkMain.classList.remove("hidden");
     avatar.textContent = savedUser.charAt(0).toUpperCase();
     profileName.textContent = savedUser.toUpperCase();
+    loadTasksFromLocalStorage();
+    renderTasks();
 } else {
     authSection.style.display = "block";
     tasksparkMain.classList.add("hidden");
@@ -89,6 +128,8 @@ registerForm.addEventListener("submit", (event) => {
         successMessage.classList.remove("show");
         authSection.style.display = "none";
         tasksparkMain.classList.remove("hidden");
+        loadTasksFromLocalStorage();
+        renderTasks();
     }, 3000);
 });
 
@@ -105,16 +146,6 @@ overlay.addEventListener("click", () => {
     sidebar.classList.remove("open");
     overlay.classList.remove("show");
 });
-
-// ============================================
-// TASK MANAGEMENT STATE
-// ============================================
-
-let tasks = [];                    
-let currentText = "";           
-let oldCategory = "";             
-let editingID = null;             
-let selectedCategory = "All Tasks"; 
 
 // ============================================
 // RENDER TASKS (DISPLAY TASKS IN UI)
@@ -184,7 +215,7 @@ heroBanner.addEventListener("submit", (e) => {
     const categorySelectValue = categorySelect.value;
     
     if (!taskInputValue) {
-        alert("please enter your name");
+        alert("please enter your task");
         return;
     }
     
@@ -195,6 +226,7 @@ heroBanner.addEventListener("submit", (e) => {
         completed: false
     };
     tasks.push(newTask);
+    saveTasksToLocalStorage();
     renderTasks();
     taskInput.value = ""; 
 });
@@ -259,6 +291,7 @@ tasksListSection.addEventListener("click", (event) => {
             editingID = null;
             currentText = "";
             oldCategory = "";
+            saveTasksToLocalStorage();
             renderTasks();
         }
     }
@@ -296,6 +329,8 @@ tasksListSection.addEventListener("click", (event) => {
         // Replace dropdown with new category label
         select.replaceWith(newCategory);
         editingID = null;
+        saveTasksToLocalStorage();
+        renderTasks();
     }
     
     // ===== CANCEL EDIT =====
@@ -327,6 +362,7 @@ tasksListSection.addEventListener("click", (event) => {
         
         // Toggle completion status
         tasks[index].completed = !tasks[index].completed;
+        saveTasksToLocalStorage();
         renderTasks();
         return;
     }
@@ -342,7 +378,7 @@ categoryItems.forEach((item) => {
     item.addEventListener("click", function() {
         const categoryName = this.querySelector("span").textContent;
         selectedCategory = categoryName;
-        renderTasks(); // Re-render with new filter
+        renderTasks();
     });
 });
 
@@ -381,10 +417,11 @@ logoutBtn.addEventListener("click", function() {
         return;
     }
     
-    // Clear user session
+    // Clear user session and tasks from localStorage
     localStorage.removeItem("username");
+    localStorage.removeItem("tasks");
 
-    // Clear tasks
+    // Clear tasks array
     tasks = [];
     renderTasks();
     

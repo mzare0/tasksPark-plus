@@ -5,6 +5,17 @@
 ---
 🔗 **[View Live Demo →](https://mzare0.github.io/tasksPark-plus/)**
 
+## 📸 Screenshots
+
+### Desktop View
+
+![Desktop ](assets/images/desktopDarkLight.png)
+
+### Mobile View
+
+![Mobile Light Mode] (assets/images/mobileLight.png)
+![Mobile Dark Mode](assets/images/mobileDark.png)
+
 ## 🚀 Features
 
 - **Task Management** – Create, edit, delete, and complete tasks
