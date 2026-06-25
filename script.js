@@ -147,7 +147,7 @@ function renderTasks() {
         taskCardSection.dataset.index = originalIndex;
         
         const isCompleted = task.completed || false;
-        const imgSrc = isCompleted ? "/assets/images/icons8-checkmark-144.png" : "/assets/images/icons8-hollow-red-circle-96.png";
+        const imgSrc = isCompleted ? "assets/images/icons8-checkmark-144.png" : "assets/images/icons8-hollow-red-circle-96.png";
         
         // Build task card HTML
         taskCardSection.innerHTML = `
