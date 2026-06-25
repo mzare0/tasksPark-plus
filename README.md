@@ -1,41 +1,47 @@
-TaskSpark+ ✨
-A modern task management app with smart filtering, dark mode, and real-time progress tracking.
+# TaskSpark+ ✨
 
-🚀 Features
-Task Management – Create, edit, delete, and complete tasks
+> A modern task management app with smart filtering, dark mode, and real-time progress tracking.
 
-Smart Categories – Work, Personal, Activity, Health
+---
 
-Real-time Stats – Track completed, pending, and total tasks
+## 🚀 Features
 
-Dark Mode – Toggle with saved preference
+- **Task Management** – Create, edit, delete, and complete tasks
+- **Smart Categories** – Work, Personal, Activity, Health
+- **Real-time Stats** – Track completed, pending, and total tasks
+- **Dark Mode** – Toggle with saved preference
+- **Responsive** – Works on all devices
+- **Local Storage** – Data persists in your browser
 
-Responsive – Works on all devices
+---
 
-Local Storage – Data persists in your browser
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
-HTML5 | CSS3 | Vanilla JS
+- HTML5 | CSS3 | Vanilla JS
+- LocalStorage for data persistence
+- Google Fonts (Open Sans)
 
-LocalStorage for data persistence
+---
 
-Google Fonts (Open Sans)
-
-📁 Project Structure
-text
-taskspark-plus/
+## 📁 Project Structure
+tasksPark-plus/
 ├── index.html
 ├── script.js
 ├── css/
-│   ├── base.css
-│   └── desktop.css
+│ ├── base.css
+│ └── desktop.css
 └── assets/
-    ├── images/
-    └── icons/
-💻 Quick Start
-bash
-git clone https://github.com/yourusername/taskspark-plus.git
-cd taskspark-plus
+├── images/
+
+text
+
+---
+
+## 💻 Quick Start
+
+```bash
+git clone https://github.com/mzare0/tasksPark-plus.git
+cd tasksPark-plus
 # Open index.html in your browser
 📱 Usage
 Enter your name to login
@@ -66,16 +72,10 @@ Pull requests are welcome! Fork the repo and submit your changes.
 MIT License
 
 📬 Contact
-Your Name Mobina Zare
-GitHub: @yourusername
+Mobina Zare
+GitHub: @mzare0
 Email: mobinazare@gmail.com
 
 ⭐ Star this repo if you find it useful!
 
-✏️ Replace these with your info:
-Placeholder	Replace With
-yourusername	Your GitHub username
-Your Name	Your full name
-your.email@example.com	Your email
-Done! 🎉
 
