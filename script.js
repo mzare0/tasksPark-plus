@@ -97,10 +97,13 @@ const savedUser = localStorage.getItem("username");
 if (savedUser) {
     authSection.style.display = "none";
     tasksparkMain.classList.remove("hidden");
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
     avatar.textContent = savedUser.charAt(0).toUpperCase();
     profileName.textContent = savedUser.toUpperCase();
     loadTasksFromLocalStorage();
     renderTasks();
+    
 } else {
     authSection.style.display = "block";
     tasksparkMain.classList.add("hidden");
@@ -416,6 +419,9 @@ logoutBtn.addEventListener("click", function() {
     if (!confirm("Are you sure you want to logout?")) {
         return;
     }
+
+     sidebar.classList.remove("open");
+    overlay.classList.remove("show");
     
     // Clear user session and tasks from localStorage
     localStorage.removeItem("username");
@@ -428,4 +434,5 @@ logoutBtn.addEventListener("click", function() {
     // Show auth section and hide main app
     authSection.style.display = "block";
     tasksparkMain.classList.add("hidden");
+    
 });
