@@ -420,6 +420,8 @@ logoutBtn.addEventListener("click", function() {
         return;
     }
 
+    userName.value="";
+
      sidebar.classList.remove("open");
     overlay.classList.remove("show");
     
