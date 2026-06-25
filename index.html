@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskSpark+</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/desktop.css">
+</head>
+<body>
+
+   <!-- AUTH / LOGIN SECTION  -->
+    <section class="authSection" id="authSection">
+        <div class="signupImg">
+            <div class="bannerSection">
+                <img class="banner" src="assets/images/Ellipse 1 (2).webp" alt="login banner">
+                <img class="logo" src="assets/images/spark plus (1).png" alt="TaskSpark+ logo">
+            </div>
+            <img class="welcome" src="assets/images/ChatGPT Image Jun 25, 2026, 06_01_09 PM.png" alt="welcome illustration">
+        </div>
+
+        <!-- Welcome text and registration form -->
+        <p class="welcomText">Welcome to TASKSPARK <span>+</span></p>
+        <form class="registerForm" id="registerForm">
+            <input id="userName" type="text" placeholder="Enter your name" required>
+            <button type="submit" id="loginBtn">Get Started</button>
+        </form>
+        <div class="successMessage"></div> <!-- feedback after login -->
+    </section>
+
+     <!-- MAIN APPLICATION   -->
+    <section class="tasksparkMain" id="tasksparkMain">
+        <div class="mainContent">
+            <!-- ========== HEADER (mobile menu) ========= -->
+            <header class="mainHeader">
+                <div class="menuIcon">
+                    <img src="/assets/images/icons8-menu.svg" alt="open sidebar menu">
+                </div>
+            </header>
+
+            <!-- ========== HERO / TASK INPUT ========= -->
+            <section class="heroSection">
+                <div class="heroTitle">
+                    <div class="contentLeft">
+                        <p>Manage <br>your time well</p>
+                        <img class="arrowIcon" src="/assets/images/ChatGPT_Image_Jun_11__2026__08_13_53_PM-removebg-preview.webp" alt="arrow decoration">
+                    </div>
+                    <div class="imageRight">
+                        <img src="/assets/images/ChatGPT Image Jun 11, 2026, 08_05_58 PM.webp" alt="hero illustration">
+                    </div>
+                </div>
+
+                <!-- Task creation form -->
+                <form class="heroBanner" id="heroBanner">
+                    <div class="taskinputSection">
+                        <input type="text" id="taskInput" placeholder="Enter task name..." required>
+                        <select id="categorySelect">
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Activity">Activity</option>
+                            <option value="Health">Health</option>
+                        </select>
+                        <button type="submit" class="saveTaskBtn" id="saveTaskBtn">Save</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ========== CATEGORY FILTERS ========= -->
+            <section class="categorieSection">
+                <h3>Categories</h3>
+                <div class="categorieItems">
+                    <div>
+                        <div class="iconBox">
+                            <img class="allImgIcon" src="/assets/images/icons8-list-100.webp" alt="all tasks icon">
+                        </div>
+                        <span>All Tasks</span>
+                    </div>
+                    <div>
+                        <div class="iconBox">
+                            <img src="/assets/images/briefcase.svg" alt="work icon">
+                        </div>
+                        <span>Work</span>
+                    </div>
+                    <div>
+                        <div class="iconBox">
+                            <img src="/assets/images/book.svg" alt="personal icon">
+                        </div>
+                        <span>Personal</span>
+                    </div>
+                    <div>
+                        <div class="iconBox">
+                            <img src="/assets/images/activity.svg" alt="activity icon">
+                        </div>
+                        <span>Activity</span>
+                    </div>
+                    <div>
+                        <div class="iconBox">
+                            <img src="/assets/images/Vector.svg" alt="health icon">
+                        </div>
+                        <span>Health</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TASK LIST ========= -->
+            <section class="tasksListSection" id="tasksListSection">
+                <!-- dynamic tasks rendered here -->
+            </section>
+
+            <!-- ========== EMPTY STATE SPEECH BUBBLE ========= -->
+            <div class="speechBubble" id="speechBubble">
+                <p id="emptyMessage">No tasks yet. Add your first task! ✨</p>
+                <img src="/assets/images/ChatGPT Image Jun 25, 2026, 02_59_29 PM.png" alt="speech bubble mascot">
+            </div>
+        </div>
+
+     <!-- DESKTOP SIDEBAR (stats & actions)   -->
+        <aside class="desktopSidebar">
+            <!-- Sidebar header -->
+            <div class="sidebarHeader">
+                <p>TO DO List</p>
+                <img src="/assets/images/ChatGPT Image Jun 25, 2026, 03_26_04 PM.png" alt="todo illustration">
+            </div>
+
+            <!-- User profile info (displayed after login) -->
+            <div class="profileInfo">
+                <div id="avatar" class="avatar">?</div>
+                <div class="acountInfo">
+                    <span id="profileName">New User</span>
+                    <span>Active User</span>
+                </div>
+            </div>
+
+            <!-- Navigation / progress cards & actions -->
+            <nav class="sidebarNav">
+                <div class="progressBoard">
+                    <div class="progressCard1">
+                        <span>Completed</span>
+                        <span id="completedCount">0</span>
+                    </div>
+                    <div class="progressCard2">
+                        <span>Incomplete</span>
+                        <span id="incompleteCount">0</span>
+                    </div>
+                    <div class="progressCard3">
+                        <span>Total Tasks</span>
+                        <span id="totalCount">0</span>
+                    </div>
+                </div>
+                <button id="darkmodeBtn">Dark mode</button>
+                <button id="logoutBtn">Logout</button>
+            </nav>
+        </aside>
+
+        <!-- Overlay for mobile menu (hidden by default) -->
+        <div class="overlay" id="overlay"></div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>

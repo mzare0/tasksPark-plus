@@ -1,0 +1,1134 @@
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+body {
+    margin: 1rem;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+:focus {
+    outline: none;
+}
+
+/* ========================================
+   AUTH SECTION (SIGNUP PAGE)
+   ======================================== */
+.authSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+}
+
+/* ========================================
+   WELCOME TEXT STYLES
+   ======================================== */
+.welcomText {
+    color: #5D80FF;
+    font-weight: 900 !important;
+    font-size: clamp(20px, 5vw, 30px);
+    text-align: center;
+}
+
+.welcomText span {
+    font-size: x-large;
+}
+
+/* ========================================
+   REGISTRATION FORM STYLES
+   ======================================== */
+.registerForm {
+    background: linear-gradient(to right, #98d8e9, #4f7ec1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.303);
+}
+
+/* Form Input Styles */
+.registerForm input {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    outline: none;
+    font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    width: 60%;
+   
+}
+
+.registerForm input:focus {
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Form Button Styles */
+.registerForm button {
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ffffff, #e6f0ff);
+    color: #2b6cb0;
+    transition: transform 0.3s ease , box-shadow 0.3s ease ;
+}
+
+.registerForm button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.registerForm button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   IMAGES & BANNER SECTION
+   ======================================== */
+.signupImg img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.bannerSection {
+    position: relative;
+    margin: -1rem;
+   
+}
+
+.bannerSection .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+}
+
+/* ========================================
+   SUCCESS MESSAGE TOAST
+   ======================================== */
+.successMessage {
+    background: linear-gradient(135deg, #045bd4 0%, #2c5a9e 100%);
+    font-family: inherit;
+    font-weight: 800 !important;
+    color: white;
+    width: 45vw;
+    max-width: 400px;
+    min-width: 250px;
+    padding: 1rem 1.75rem;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 20px 35px -10px rgba(44, 90, 158, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    animation: slideDown 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+    overflow: hidden;
+}
+
+/* Progress Bar (Bottom of Toast) */
+.successMessage::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+    border-radius: 0 0 20px 20px;
+    animation: progressBar 3s linear forwards;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes progressBar {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-40px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ========================================
+   MAIN APP SECTION (DASHBOARD)
+   ======================================== */
+
+.tasksparkMain {
+    display:flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem 0 1.5rem;  
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 24px 24px 0 0;  
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    width: 100%;
+
+    max-width: 100%;
+    box-sizing: border-box;
+    
+}
+.tasksparkMain.hidden {
+    display: none !important;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.mainContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menuIcon img{
+    width: 32px;
+    height: 32px;
+    margin-top: 0.5rem;
+}
+/* hero section */
+.heroSection {
+    background: linear-gradient(270deg, #c1e9ff, #ffe9e9, #b4f1ff, #c3e5f3);
+    box-shadow: 0 15px 30px -10px rgba(125, 211, 252, 0.3);
+    border-radius: 1.5rem;
+    animation: gradientShift 8s ease infinite;
+    background-size: 400% 400%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    padding: clamp(1rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+   
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.heroTitle {
+    position: relative;
+}
+.contentLeft p {
+    font-size: clamp(1rem,3vw,4rem);
+    font-weight: 700;
+    color: #1e3a8a;
+    font-family: inherit;
+}
+
+.contentLeft .arrowIcon {
+    width: clamp(60px, 10vw, 200px);
+    position: absolute;
+    top: -1%;
+    left: 40%;
+    opacity: 0.7;
+}
+.imageRight img {
+    width: clamp(90px, 14vw, 200px);
+    position: absolute;
+    right: 10%;
+    bottom:0;
+    animation: floatingSand 2.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes floatingSand {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+
+
+
+.heroBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+
+}
+
+.taskinputSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.heroBanner input,
+.heroBanner select {
+    padding: clamp(0.8rem, 3vw, 1rem);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 14px;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    color: #0c4a6e;
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    width: 100%;
+
+}
+.heroBanner input::placeholder {
+    color:rgba(12, 74, 110, 0.6);
+}
+
+.heroBanner input:focus,
+.heroBanner select:focus {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.saveTaskBtn {
+    padding: clamp(0.7rem, 3vw, 1rem) clamp(1.2rem, 5vw, 2rem);
+    border: none;
+    border-radius: 40px;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.saveTaskBtn{
+    background: rgba(34, 197, 94, 0.85);
+    color: white;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.saveTaskBtn:active {
+    transform: scale(0.96);
+}
+
+/* caregories Section */
+
+.categorieSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.categorieSection h3{
+     margin-bottom:15px ;
+    font-size: clamp(1.3rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #1e3a8a;
+    width: 100%;
+    text-align: center;
+}
+
+.categorieItems {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: nowrap;     
+    justify-content: flex-start; 
+    overflow-x: auto;       
+    padding: 0.5rem 1rem;   
+    width: 100%;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.categorieItems > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem; 
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: clamp(70px, 15vw, 100px);
+    height: clamp(70px, 15vw, 100px);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(0, 97, 158, 0.3);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    
+}
+.allImgIcon{
+    width: 45px;
+}
+
+.iconBox:active {
+    transform: scale(0.9);
+}
+.categorieItems span{
+    font-weight: 800;
+    font-size: clamp(0.5rem,3vw,1rem);
+    color: #1e3a8a;
+}
+
+.speechBubble {
+    text-align: center;
+}
+
+.speechBubble img {
+  width: 200px;
+  height: auto;
+}
+
+.desktopSidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;  
+    width: 260px;
+    height: 100%;
+    background: white;
+    transform: translateX(-100%);  
+    transition: transform 0.3s ease;  
+    z-index: 1000;
+    padding: 1rem;
+    box-shadow: inset 1px 1px 30px rgba(184, 214, 234, 0.601);
+    border-radius: 0 20px 20px 0;
+    will-change: transform;
+    overflow-y: auto;     
+    overflow-x: hidden;
+
+}
+
+.desktopSidebar.open {
+    transform: translateX(0);
+}
+.sidebarHeader img{
+    width: 150px;
+}
+
+/* Overlay - dark background behind sidebar when open */
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden; 
+    transition: 0.5s;
+    z-index: 900;
+}
+
+/* Show overlay when sidebar is open */
+.overlay.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Header section  */
+.sidebarHeader{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+}
+.sidebarHeader p{
+    font-size: 1.6rem;
+    color: #1e3a8a;
+    font-weight: 800;
+}
+
+/* User profile information container */
+.profileInfo {
+    background: rgba(241, 213, 213, 0.195);
+    border-radius: 24px;
+    padding: 20px 16px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.avatar {
+    width: 90px;
+    height: 56px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+/* Account information wrapper */
+.acountInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* User name styling */
+.acountInfo span:first-child {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1e3a8a;
+}
+
+/* User badge styling */
+.acountInfo span:last-child {
+    font-size: 0.9rem;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+/* Progress board container */
+.progressBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.progressBoard div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.progressBoard div:hover {
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.progressCard1 {
+    background: linear-gradient(135deg, #a0ed9e, #6fcf6b);
+    border-left: 4px solid #2e7d32;
+    box-shadow: 0 4px 12px rgba(111, 207, 107, 0.3);
+}
+
+.progressCard2 {
+    background: linear-gradient(135deg, #f39898, #ef6b6b);
+    border-left: 4px solid #c62828;
+    box-shadow: 0 4px 12px rgba(239, 107, 107, 0.3);
+}
+
+.progressCard3 {
+    background: linear-gradient(135deg, #f8de9e, #f5c542);
+    border-left: 4px solid #e65100;
+    box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+}
+
+/* Label text inside progress cards */
+.progressBoard div span:first-child {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1e2a3a;
+    letter-spacing: 0.3px;
+}
+
+/* Numeric value text inside progress cards */
+.progressBoard div span:last-child {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #1e3a5f;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation buttons container styling */
+.sidebarNav button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    color: #1e3a8a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebarNav button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Shine animation effect overlay for buttons */
+.sidebarNav button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+/* Trigger shine animation on hover */
+.sidebarNav button:hover::after {
+    left: 100%;
+}
+
+/* Theme toggle button (moon/sun icon) styling */
+.sidebarNav button:first-of-type {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    color: #1e3a8a;
+}
+
+/* Theme toggle button hover state */
+.sidebarNav button:first-of-type:hover {
+    background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+    box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+}
+
+/* Moon emoji icon for theme toggle */
+.sidebarNav button:first-of-type::before {
+    content: "🌕";
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+/* Logout button styling  */
+.sidebarNav button:last-of-type {
+    background: linear-gradient(135deg, #f87171, #dc2626);
+    color: white;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    margin-bottom: 1rem;
+}
+
+.sidebarNav button:last-of-type:hover {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    box-shadow: 0 12px 24px rgba(220, 38, 38, 0.4);
+    transform: translateY(-4px);
+}
+
+/* Door emoji icon for logout button */
+.sidebarNav button:last-of-type::before {
+    content: "🚪";
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+/* Focus state for accessibility - keyboard navigation */
+.sidebarNav button:focus {
+    outline: 2px solid #93b2e5;
+    outline-offset: 2px;
+}
+
+/* Active/pressed state for buttons - instant feedback */
+.sidebarNav button:active {
+    transform: translateY(0px);
+    transition: 0.05s;
+}
+
+/* ===== Main Task Card ===== */
+.taskCardSection {
+    animation: slideIn 0.3s ease;
+}
+
+/* Empty message */
+#emptyMessage{
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-top: clamp(2rem,5vw,5rem);
+    text-align: center !important;
+    font-size: clamp(0.9rem,2vw,2rem);
+
+}
+
+/* ===== Task Card ===== */
+.taskCard {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 1rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(179, 244, 245, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top:2rem;
+    margin-bottom: 4rem;
+}
+
+/* Task header */
+.taskHeader{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ===== Task Title ===== */
+.taskCardTitle {
+    font-size: clamp(1rem,3vw,1.3rem);
+    font-weight: 600;
+    color: #2d3436;
+    margin: 0;
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+/* ===== Category Badge ===== */
+.taskCategory {
+    padding: 0.4rem 1rem;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Category colors */
+.taskCategory.Work{
+    background: #ff6b6b;
+    color: white;
+}
+
+.taskCategory.Personal{
+    background: #4d8af0;
+    color: white;
+}
+
+.taskCategory.Activity {
+    background: #20bf6b;
+    color: white;
+}
+
+.taskCategory.Health {
+    background: #fa8231;
+    color: white;
+}
+
+/* ===== Slide-in Animation ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Edit Mode Styles ===== */
+.taskCardTitle[contenteditable="true"] {
+    border-bottom: 2px solid #4d8af0;
+    padding-bottom: 4px;
+    outline: none;
+    cursor: text;
+    background-color: #f0f7ff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    transition: all 0.3s ease;
+}
+
+.taskCardTitle[contenteditable="true"]:focus {
+    border-bottom-color: #1e3a8a;
+    background-color: #e3eeff;
+    box-shadow: 0 2px 8px rgba(77, 138, 240, 0.2);
+}
+
+/* ===== Card Action Buttons ===== */
+.taskCardActions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+    border-top: 1px solid #f0f2f5;
+    padding-top: 0.8rem;
+}
+
+.taskCardActions button {
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Edit button */
+.editAction {
+    background: #2876fda7;
+}
+
+/* Delete button */
+.deleteAction {
+    background: #ff1500ad;
+}
+
+/* Save button */
+.saveAction {
+    background-color: rgb(118, 219, 102);
+}
+
+/* Cancel button */
+.cancelAction {
+    background: rgb(255, 187, 150);
+}
+
+/* Button icons */
+.editAction::before {
+    content: "✏️";
+}
+
+.deleteAction::before {
+    content: "🗑️";
+}
+
+.saveAction::before {
+    content: "💾";
+}
+
+.cancelAction::before {
+    content: "❌";
+}
+
+/* ===== Category Select Dropdown ===== */
+.taskCategorySelect {
+    padding: 0.4rem 1rem;
+    width:70px;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 2px solid #4d8af0;
+    background: white;
+    color: #2d3436;
+    outline: none;
+    cursor: pointer;
+    appearance: auto;
+}
+
+/* ===== Check Action Button ===== */
+.checkAction {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Active/Click effect */
+.checkAction:active {
+    transform: scale(0.9);
+}
+
+/* Image inside button */
+.checkAction img {
+    display: block;
+    width: clamp(30px,5vw,40px);
+    height: clamp(30px,5vw,40px);
+    pointer-events: none;
+}
+
+
+/* ========================================
+   DARK MODE
+   Same palette & structure as light mode,
+   inverted for dark backgrounds.
+   Activated by adding class "dark-mode" to <body>.
+   ======================================== */
+
+body.dark-mode {
+    background-color: #0f1419;
+}
+
+/* ===== Welcome text ===== */
+body.dark-mode .welcomText {
+    color: #7c9cff;
+}
+
+/* ===== Registration form ===== */
+body.dark-mode .registerForm {
+    background: linear-gradient(to right, #377393, #083480);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .registerForm input {
+    background-color: #1e2e42;
+    color: #e8eef5;
+}
+
+body.dark-mode .registerForm input::placeholder {
+    color: rgba(232, 238, 245, 0.5);
+}
+
+body.dark-mode .registerForm input:focus {
+    border: 2px solid #3b4a5a;
+    box-shadow: 0 0 0 4px rgba(124, 156, 255, 0.2);
+}
+
+body.dark-mode .registerForm button {
+    background: linear-gradient(135deg, #2a3645, #1f2937);
+    color: #9db8ff;
+}
+
+/* ===== Success message toast ===== */
+body.dark-mode .successMessage {
+    background: linear-gradient(135deg, #0a2e6e 0%, #16243f 100%);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Main app / dashboard background ===== */
+body.dark-mode .tasksparkMain {
+    background: rgba(20, 25, 33, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Hero section ===== */
+body.dark-mode .heroSection {
+    background: linear-gradient(270deg, #16313d, #3a2424, #143843, #1b2e36);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .contentLeft p {
+    color: #aebfff;
+}
+
+/* ===== Task input / select ===== */
+body.dark-mode .heroBanner input,
+body.dark-mode .heroBanner select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #d7e8f5;
+}
+
+body.dark-mode .heroBanner input::placeholder {
+    color: rgba(215, 232, 245, 0.45);
+}
+
+body.dark-mode .heroBanner input:focus,
+body.dark-mode .heroBanner select:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(96, 165, 250, 0.8);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .saveTaskBtn {
+    background: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+/* ===== Categories section ===== */
+body.dark-mode .categorieSection h3 {
+    color: #aebfff;
+}
+
+body.dark-mode .iconBox {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .categorieItems span {
+    color: #aebfff;
+}
+
+/* ===== Sidebar ===== */
+body.dark-mode .desktopSidebar {
+    background: #151b24;
+    box-shadow: inset 1px 1px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .sidebarHeader p {
+    color: #aebfff;
+}
+
+body.dark-mode .profileInfo {
+    background: rgba(124, 92, 92, 0.12);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .avatar {
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a, #2563eb);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+body.dark-mode .acountInfo span:first-child {
+    color: #aebfff;
+}
+
+body.dark-mode .acountInfo span:last-child {
+    color: #7c9cff;
+    background: rgba(96, 165, 250, 0.12);
+}
+
+/* ===== Progress board ===== */
+body.dark-mode .progressCard1 {
+    background: linear-gradient(135deg, #35b041, #245228);
+    border-left: 4px solid #2e7d32;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+
+
+body.dark-mode .progressCard2 {
+    background: linear-gradient(135deg, #ac2222, #602b2b);
+    border-left: 4px solid #c62828;
+    box-shadow: 0 4px 12px rgba(198, 40, 40, 0.3);
+}
+
+body.dark-mode .progressCard3 {
+    background: linear-gradient(135deg, #cf9231, #5e4a1f);
+    border-left: 4px solid #ed6724;
+    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
+}
+
+body.dark-mode .progressBoard div span:first-child {
+    color: #d7e0ec;
+}
+
+body.dark-mode .progressBoard div span:last-child {
+    color: #f0f4fa;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Sidebar nav buttons ===== */
+body.dark-mode .sidebarNav button {
+    color: #aebfff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+body.dark-mode .sidebarNav button:first-of-type {
+    background: linear-gradient(135deg, #2a2f55, #353a6b);
+    color: #c7d2fe;
+}
+
+body.dark-mode .sidebarNav button:first-of-type::before {
+    content: "🌙";
+}
+
+body.dark-mode .sidebarNav button:last-of-type {
+    background: linear-gradient(135deg, #d84242, #5c1f1f);
+    box-shadow: 0 4px 12px rgba(92, 31, 31, 0.4);
+}
+
+/* ===== Empty message ===== */
+body.dark-mode #emptyMessage {
+    color: #aebfff;
+}
+
+/* ===== Task cards ===== */
+body.dark-mode .taskCard {
+    background: linear-gradient(135deg, #1a212b 0%, #161c25 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(96, 165, 245, 0.15);
+}
+
+body.dark-mode .taskCardTitle {
+    color: #e6eaee;
+}
+
+/* ===== Edit mode ===== */
+body.dark-mode .taskCardTitle[contenteditable="true"] {
+    border-bottom: 2px solid #3a68c4;
+    background-color: #1b2735;
+    color: #e6eaee;
+}
+
+
+
+
+
+

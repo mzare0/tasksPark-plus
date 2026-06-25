@@ -1,0 +1,98 @@
+@media (min-width: 1024px) {
+ .tasksparkMain:not(.hidden) {
+    display: grid !important;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "sidebar main";
+    align-items: stretch;
+    justify-items: stretch;
+    gap: 20px;
+      min-height: auto; 
+    
+  }
+
+  .desktopSidebar {
+    grid-area: sidebar;
+    position: sticky !important;
+    width: 100%;
+    transform: translateX(0);
+    overflow-y: auto;
+    height: fit-content;
+
+  }
+
+
+  .mainContent {
+    grid-area: main;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;   
+  }
+  .heroSection {
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+  .mainHeader {
+    display: none;
+  }
+
+  .overlay {
+    display: none !important;
+  }
+  .speechBubble img{
+    width: 400px;
+  }
+  .categorieItems {
+        justify-content: center !important;
+  }
+  .imageRight img {
+    top: 2% !important;
+}
+ .taskCard{
+  width:600px;
+ }
+ .taskCategory{
+  padding: 0.7rem 1.7rem !important;
+  font-size: 0.9rem;
+ }
+ .taskCardActions button{
+  padding: 0.6rem 1.5rem;
+ }
+ .taskCategorySelect{
+  width: 100px;
+  padding: 0.6rem 1.3rem;
+ }
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    min-height: 100vh;
+    padding: 1rem;
+    margin: 0;
+}
+ .authSection{
+  width: 500px;
+  
+ 
+ }
+ .bannerSection img{
+  display: none !important;
+ }
+
+    
+}
+
+
+
+
+
+
+
+
+
+ 
