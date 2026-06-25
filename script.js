@@ -78,9 +78,22 @@ function loadTasksFromLocalStorage() {
 // ============================================
 
 const savedTheme = localStorage.getItem("theme");
+
 if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
+} else {
+    document.body.classList.remove("dark-mode");
+    if (savedTheme === null) {
+        localStorage.setItem("theme", "light");
+    }
 }
+
+// Toggle dark mode and save preference to localStorage
+darkModeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 
 // Toggle dark mode and save preference to localStorage
 darkModeBtn.addEventListener("click", () => {
