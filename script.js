@@ -77,6 +77,8 @@ registerForm.addEventListener("submit", (event) => {
     if (userNameValue === "") {
         return; 
     }
+    avatar.textContent = userNameValue.charAt(0).toUpperCase();
+    profileName.textContent = userNameValue.toUpperCase();
     
     // Show welcome message
     const welcomeMsg = `welcome ${userNameValue}`;

@@ -3,6 +3,7 @@
 > A modern task management app with smart filtering, dark mode, and real-time progress tracking.
 
 ---
+🔗 **[View Live Demo →](https://mzare0.github.io/tasksPark-plus/)**
 
 ## 🚀 Features
 
