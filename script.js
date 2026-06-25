@@ -77,18 +77,19 @@ function loadTasksFromLocalStorage() {
 // DARK MODE FUNCTIONALITY
 // ============================================
 
+
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
+} else if (savedTheme === "light") {
+    document.body.classList.remove("dark-mode");
 } else {
     document.body.classList.remove("dark-mode");
-    if (savedTheme === null) {
-        localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem("theme", "light");
 }
 
-// Toggle dark mode and save preference to localStorage
+// Toggle dark mode
 darkModeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     const isDark = document.body.classList.contains("dark-mode");
