@@ -13,7 +13,7 @@
 
 ### Mobile View
 
-![Mobile Light Mode] (assets/images/mobileLight.png)
+![Mobile Light Mode](assets/images/mobileLight.png)
 ![Mobile Dark Mode](assets/images/mobileDark.png)
 
 ## 🚀 Features
